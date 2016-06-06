@@ -1,0 +1,41 @@
+\documentclass[12pt,titlepage]{scrartcl}
+\usepackage{graphicx}
+\usepackage[top=0.5in,left=1in,right=1in]{geometry}
+
+
+
+\newsavebox{\abstractbox}
+\renewenvironment{abstract}
+{\begin{lrbox}{0}\begin{minipage}{\textwidth}
+\begin{center}\normalfont\sectfont\abstractname\end{center}\quotation}
+{\endquotation\end{minipage}\end{lrbox}%
+\global\setbox\abstractbox=\box0 }
+
+\usepackage{etoolbox}
+\makeatletter
+\expandafter\patchcmd\csname\string\maketitle\endcsname
+{\vskip\z@\@plus3fill}
+{\vskip\z@\@plus2fill\box\abstractbox\vskip\z@\@plus1fill}
+{}{}
+\makeatother
+
+\usepackage{lipsum}
+
+\begin{document}
+
+\titlehead{ \centering \includegraphics[width=3in]{cbmmlogo} }
+\title{Memo Title Here}         % ATTN
+\author{Author One, Author Two} % ATTN
+
+\begin{abstract}
+This is my abstract. It's a good abstract. It's very concrete.
+\lipsum[1]
+
+\thanks{ Test foot? }
+\end{abstract}
+
+\maketitle
+
+
+
+\end{document}
