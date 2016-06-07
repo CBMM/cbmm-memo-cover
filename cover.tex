@@ -1,8 +1,7 @@
 \documentclass[12pt,titlepage]{scrartcl}
 \usepackage{graphicx}
 \usepackage[top=0.5in,left=1in,right=1in]{geometry}
-
-
+\usepackage[absolute,overlay]{textpos}
 
 \newsavebox{\abstractbox}
 \renewenvironment{abstract}
@@ -19,23 +18,35 @@
 {}{}
 \makeatother
 
+\newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}
+
 \usepackage{lipsum}
 
 \begin{document}
 
-\titlehead{ \centering \includegraphics[width=3in]{cbmmlogo} }
+\titlehead{
+  \begin{center}
+    \includegraphics[width=3in]{cbmmlogo}
+ 
+  \end{center}
+    \noindent
+      CBMM Memo No. 123\hfill Oct 14, 1982
+  }
 \title{Memo Title Here}         % ATTN
 \author{Author One, Author Two} % ATTN
 
 \begin{abstract}
 This is my abstract. It's a good abstract. It's very concrete.
 \lipsum[1]
+% \vfill
+% \noindent\textbox{Test footer} % TODO doesn't seem to go to bottom of page
 
-\thanks{ Test foot? }
+\begin{bottompar}
+  Test test test bottom.
+\end{bottompar}
+
 \end{abstract}
 
 \maketitle
-
-
 
 \end{document}
