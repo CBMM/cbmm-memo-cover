@@ -1,52 +1,56 @@
-\documentclass[12pt,titlepage]{scrartcl}
+\documentclass[12pt,titlepage]{article}
 \usepackage{graphicx}
-\usepackage[top=0.5in,left=1in,right=1in]{geometry}
+\usepackage{titling}
+\usepackage{sidecap}
+% \usepackage {showframe}
+\usepackage[top=1in,left=0.75in,right=0.75in,bottom=0.5in]{geometry}
 \usepackage[absolute,overlay]{textpos}
-
-\newsavebox{\abstractbox}
-\renewenvironment{abstract}
-{\begin{lrbox}{0}\begin{minipage}{\textwidth}
-\begin{center}\normalfont\sectfont\abstractname\end{center}\quotation}
-{\endquotation\end{minipage}\end{lrbox}%
-\global\setbox\abstractbox=\box0 }
-
-\usepackage{etoolbox}
-\makeatletter
-\expandafter\patchcmd\csname\string\maketitle\endcsname
-{\vskip\z@\@plus3fill}
-{\vskip\z@\@plus2fill\box\abstractbox\vskip\z@\@plus1fill}
-{}{}
-\makeatother
-
-\newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}
+\usepackage{float}
 
 \usepackage{lipsum}
 
-\begin{document}
-
-\titlehead{
-  \begin{center}
-    \includegraphics[width=3in]{cbmmlogo}
- 
-  \end{center}
-    \noindent
-      CBMM Memo No. 123\hfill Oct 14, 1982
-  }
 \title{Memo Title Here}         % ATTN
 \author{Author One, Author Two} % ATTN
 
-\begin{abstract}
-This is my abstract. It's a good abstract. It's very concrete.
-\lipsum[1]
-% \vfill
-% \noindent\textbox{Test footer} % TODO doesn't seem to go to bottom of page
+\begin{document}
+\begin{titlingpage}
+\begin{center}
+  \includegraphics[width=3in]{cbmm2}
+\end{center}
+\vspace{40pt}
+\noindent
+\begin{large}
+  CBMM Memo No. 123\hfill Oct 14, 1982
+\end{large}
+\vspace{20pt}
+\begin{center}
+  \begin{huge}\thetitle \end{huge}
+  \\
+  \vspace{20pt}
+  \begin{large}\theauthor \end{large}
+\end{center}
+\begin{center}
+  \begin{large} \begin{bfseries} Abstract \end{bfseries} \end{large}
+\end{center}
 
-\begin{bottompar}
-  Test test test bottom.
-\end{bottompar}
+% ATTN
+This is my abstract. It's a good abstract. It's very concrete. \lipsum[1] \lipsum[2]
 
-\end{abstract}
 
-\maketitle
+\vfill
+\begin{minipage}{0.05\textwidth}
+\includegraphics[width=0.5in]{nsf4}
+\end{minipage}
+\hfill
+\begin{minipage}{0.80\textwidth}
+  \begin{large}
+    This work was supported by the Center for Brains, Minds and
+    Machines (CBMM), funded by NSF STC award CCF-1231216
+  \end{large}
+\end{minipage}
+
+\end{titlingpage}
+
+Here is the rest of the aritcle. \lipsum[1] % ATTN
 
 \end{document}
