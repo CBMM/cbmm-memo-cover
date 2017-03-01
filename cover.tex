@@ -1,56 +1,47 @@
-\documentclass[12pt,titlepage]{article}
-\usepackage{graphicx}
-\usepackage{titling}
-\usepackage{sidecap}
-% \usepackage {showframe}
-\usepackage[top=1in,left=0.75in,right=0.75in,bottom=0.5in]{geometry}
-\usepackage[absolute,overlay]{textpos}
-\usepackage{float}
+% =============================================================================
+% Template for CBMM memo cover pages
+%
+% To create a new memo
+%
+%   1) Fill out the fields below and compile with
+%   2) Compile with pdflatex
+%
+% This will create a new PDF with the CBMM cover page attached in front of the 
+% PDF you want to publish as a memo. Please note that you require the actual
+% publication already as a PDF file. This LaTeX file will simply create the
+% correct cover page and prepend it to the PDF.
+% 
+% Author: Max Nickel <mnick@mit.edu>
+% Modifications: Georgios Evangelopoulos <gevang@mit.edu>
+% ================================================================================
+\documentclass{CBMMMemo}
 
-\usepackage{lipsum}
+% Title of the memo
+\title{Memo Title}
 
-\title{Memo Title Here}         % ATTN
-\author{Author One, Author Two} % ATTN
+% Authos of the memo
+\author{Author 1$^{*,1}$, Author 2$^{*,2}$, Author 3$^{3}$ and Author 4$^{1,2}$}
 
-\begin{document}
-\begin{titlingpage}
-\begin{center}
-  \includegraphics[width=3in]{cbmm}
-\end{center}
-\vspace{40pt}
-\noindent
-\begin{large}
-  CBMM Memo No. 123\hfill Oct 14, 1982
-\end{large}
-\vspace{20pt}
-\begin{center}
-  \begin{huge}\thetitle \end{huge}
-  \\
-  \vspace{20pt}
-  \begin{large}\theauthor \end{large}
-\end{center}
-\begin{center}
-  \begin{large} \begin{bfseries} Abstract \end{bfseries} \end{large}
-\end{center}
+% Affiliations. Use \\ to put in separate lines
+\authoraffil{
+% ((optional note), e.g. * denotes equal contribution)\\
+1: Center for Brains, Minds, and Machines\\
+2: McGovern Institute for Brain Research at MIT, Cambridge, MA, USA \\
+3: Harvard University}
 
-% ATTN
-This is my abstract. It's a good abstract. It's very concrete. \lipsum[1] \lipsum[2]
+% Publication date
+\date{\today}
 
+% CBMM memo number for this memo
+\memonumber{00}
 
-\vfill
-\begin{minipage}{0.05\textwidth}
-\includegraphics[width=0.5in]{nsf4}
-\end{minipage}
-\hfill
-\begin{minipage}{0.80\textwidth}
-  \begin{large}
-    This work was supported by the Center for Brains, Minds and
-    Machines (CBMM), funded by NSF STC award CCF-1231216
-  \end{large}
-\end{minipage}
+% Path to the full PDF of the publication
+\memopdf{}%{PATH-TO-PDF-FILE}
 
-\end{titlingpage}
+% Abstract of the memo
+\begin{abstract}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  
+\end{abstract}
 
-Here is the rest of the aritcle. \lipsum[1] % ATTN
-
-\end{document}
+% Do not touch this
+\makememo
